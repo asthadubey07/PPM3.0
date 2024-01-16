@@ -1,0 +1,68 @@
+@model PPM.Model.Employee
+
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+<div class="container">
+    <h2 class="text-center font-weight-bold text-uppercase">Create Employee</h2>
+
+    <form asp-action="Create" method="post" enctype="application/json">
+        <div class="form-group">
+            <label asp-for="EmployeeId" class="font-weight-bold text-uppercase">Employee ID:</label>
+            <input asp-for="EmployeeId" class="form-control" style="margin-top: 5px; border: 1px solid darkslategray;" placeholder="Employee ID"/>
+             <span asp-validation-for="EmployeeId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FirstName" class="font-weight-bold text-uppercase">First Name:</label>
+            <input asp-for="FirstName" class="form-control" style="margin-top: 5px; border: 1px solid darkslategray;"placeholder="First Name" />
+         <span asp-validation-for="FirstName" class="text-danger"></span>
+         </div>
+
+        <div class="form-group">
+            <label asp-for="LastName" class="font-weight-bold text-uppercase">Last Name:</label>
+            <input asp-for="LastName" class="form-control" style="margin-top: 5px; border: 1px solid darkslategray;"placeholder="Last Name" />
+         <span asp-validation-for="LastName" class="text-danger"></span>
+         </div>
+
+        <div class="form-group">
+            <label asp-for="Email" class="font-weight-bold text-uppercase">Email:</label>
+            <input asp-for="Email" class="form-control" style="margin-top: 5px; border: 1px solid darkslategray;"placeholder="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+         </div>
+
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="font-weight-bold text-uppercase">Phone Number:</label>
+            <input asp-for="PhoneNumber" class="form-control" style="margin-top: 5px; border: 1px solid darkslategray;"placeholder="Phone Number" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+         </div>
+
+        <div class="form-group">
+            <label asp-for="Password" class="font-weight-bold text-uppercase">Password:</label>
+            <input asp-for="Password" class="form-control" style="margin-top: 5px; border: 1px solid darkslategray;" placeholder="Password"/>
+        <span asp-validation-for="Password" class="text-danger"></span>
+         </div>
+
+        <div class="form-group">
+            <label asp-for="Address" class="font-weight-bold text-uppercase">Address:</label>
+            <input asp-for="Address" class="form-control"  style="margin-top: 5px; border: 1px solid darkslategray;"placeholder="Address"/>
+         <span asp-validation-for="Address" class="text-danger"></span>
+         </div>
+
+        <div class="form-group">
+            <label asp-for="RoleId" class="font-weight-bold text-uppercase">Role ID:</label>
+            <input asp-for="RoleId" class="form-control" style="margin-top: 5px; border: 1px solid darkslategray;"placeholder="Role ID" />
+         <span asp-validation-for="RoleId" class="text-danger"></span>
+         </div>
+      
+         <div class="text-center">
+            <button type="submit" class="btn btn-success" style="margin-top: 15px;"><i class="bi bi-plus-circle-fill"></i> Create</button>
+         <a asp-action="Index" class="btn btn-dark" style="margin-left: 5px;margin-top: 15px; "><i class="bi bi-skip-backward-fill"></i> Back to List</a>
+         </div>
+    </form>
+</div>
+
+
+
+
+        

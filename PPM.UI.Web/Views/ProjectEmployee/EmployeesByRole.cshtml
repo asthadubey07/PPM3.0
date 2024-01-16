@@ -1,0 +1,46 @@
+@model IEnumerable<PPM.Model.Employee>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+      <strong>Success!</strong>  @TempData["SuccessMessage"]
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Failed!.</strong>@TempData["ErrorMessage"]
+    </div>
+}
+
+<h2 class="font-weight-bold text-uppercase">Employees by Role</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="font-weight-bold text-uppercase">Employee ID</th>
+                <th class="font-weight-bold text-uppercase">First Name</th>
+                <th class="font-weight-bold text-uppercase">Last Name</th>
+                <th class="font-weight-bold text-uppercase">Email</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.EmployeeId</td>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.LastName</td>
+                    <td>@employee.Email</td>
+                   
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="font-weight-bold text-uppercase">No employees available for this role.</p>
+}

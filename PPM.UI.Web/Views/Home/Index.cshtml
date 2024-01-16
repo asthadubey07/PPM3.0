@@ -1,0 +1,45 @@
+﻿@model PPM.Model.Employee
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    @{
+        if (TempData["User"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Welcome <strong>@TempData["User"]</strong> To PPM
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+    }
+</div>
+
+<div class="container text-center">
+    <h2 class="mb-4 font-weight-bold text-uppercase">User Details</h2>
+    <dl>
+        <dt class="col-sm-6">Employee ID:</dt>
+        <dd class="col-sm-12">@Model.EmployeeId</dd>
+
+        <dt class="col-sm-6">First Name:</dt>
+        <dd class="col-sm-12">@Model.FirstName</dd>
+
+        <dt class="col-sm-6">Last Name:</dt>
+        <dd class="col-sm-12">@Model.LastName</dd>
+
+        <dt class="col-sm-6">Email:</dt>
+        <dd class="col-sm-12">@Model.Email</dd>
+
+        <dt class="col-sm-6">Phone Number:</dt>
+        <dd class="col-sm-12">@Model.PhoneNumber</dd>
+
+        <dt class="col-sm-6">Address:</dt>
+        <dd class="col-sm-12">@Model.Address</dd>
+
+        <dt class="col-sm-6">Role ID:</dt>
+        <dd class="col-sm-12">@Model.RoleId</dd>
+    </dl>
+</div>
+
+</div>

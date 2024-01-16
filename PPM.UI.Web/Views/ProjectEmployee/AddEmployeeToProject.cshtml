@@ -1,0 +1,40 @@
+@model PPM.Model.ProjectEmployees
+
+@{
+    ViewData["Title"] = "Add Employee to Project";
+}
+
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+<div class="form-container">
+<h2 class="text-center font-weight-bold text-uppercase">Add Employee to Project</h2>
+ <form method="post" asp-controller="ProjectEmployee" asp-action="AddEmployeeToProject">
+    <div class="form-group">
+         <label asp-for="projectId" class="font-weight-bold text-uppercase">Project ID:</label>
+        <input asp-for="projectId" class="form-control" style="margin-top: 5px; border: 1px solid darkslategray;" placeholder="Project ID" required/>
+        <span asp-validation-for="projectId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="employeeId" class="font-weight-bold text-uppercase" >Employee ID:</label>
+        <input asp-for="employeeId" class="form-control" style="margin-top: 5px; border: 1px solid darkslategray;" placeholder="Employee ID" required />
+        <span asp-validation-for="employeeId" class="text-danger"></span>
+    </div>
+  <button  type="submit" class="btn btn-success" style="margin-top: 15px;"><i class="bi bi-plus-circle-fill"></i>Add Employee to Project</button>
+ <a asp-action="Index" class="btn btn-danger"style="margin-left: 5px;" ><i class="bi bi-x-octagon-fill"></i> Cancel</a>
+</form>
+</div>
+
+    
