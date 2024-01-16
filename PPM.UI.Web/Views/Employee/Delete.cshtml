@@ -1,0 +1,45 @@
+@model PPM.Model.Employee
+
+@{
+    ViewData["Title"] = "Delete Employee";
+}
+
+<div class="container text-center">
+    <h2 class="mb-4 font-weight-bold text-uppercase">Delete Employee</h2>
+
+  
+
+    <div class="d-flex justify-content-center">
+        <dl class="row">
+            <dt class="col-sm-10">Employee ID:</dt>
+            <dd class="col-sm-18">@Model.EmployeeId</dd>
+
+            <dt class="col-sm-10">First Name:</dt>
+            <dd class="col-sm-18">@Model.FirstName</dd>
+
+            <dt class="col-sm-10">Last Name:</dt>
+            <dd class="col-sm-18">@Model.LastName</dd>
+
+            <dt class="col-sm-10">Email:</dt>
+            <dd class="col-sm-18">@Model.Email</dd>
+
+            <dt class="col-sm-10">Phone Number:</dt>
+            <dd class="col-sm-18">@Model.PhoneNumber</dd>
+
+            <dt class="col-sm-10">Address:</dt>
+            <dd class="col-sm-18">@Model.Address</dd>
+
+            <dt class="col-sm-10">Role ID:</dt>
+            <dd class="col-sm-18">@Model.RoleId</dd>
+        </dl>
+    </div>
+      <div class="mt-3 text-center">
+        <form asp-action="ConfirmDelete" method="post" asp-route-id="@Model.EmployeeId">
+            <input asp-for="EmployeeId" type="hidden" />
+
+            <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i> Confirm Delete</button>
+            <a asp-action="Index" class="btn btn-dark ml-3" style="margin-left: 5px;"><i
+                    class="bi bi-x-octagon-fill"></i> Cancel</a>
+        </form>
+    </div>
+</div>

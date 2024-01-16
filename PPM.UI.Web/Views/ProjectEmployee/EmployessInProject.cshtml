@@ -1,0 +1,39 @@
+@model IEnumerable<PPM.Model.Employee>
+
+<h2 class="font-weight-bold text-uppercase">Employees in Project</h2>
+@if (Model != null && Model.Any())
+{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="font-weight-bold text-uppercase">Employee ID</th>
+                <th class="font-weight-bold text-uppercase">First Name</th>
+                <th class="font-weight-bold text-uppercase">Last Name</th>
+                <th class="font-weight-bold text-uppercase">Email</th>
+                <th class="font-weight-bold text-uppercase">Phone Number</th>
+                <th class="font-weight-bold text-uppercase">Address</th>
+                <th class="font-weight-bold text-uppercase">Role ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.EmployeeId</td>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.LastName</td>
+                    <td>@employee.Email</td>
+                    <td>@employee.PhoneNumber</td>
+                    <td>@employee.Address</td>
+                    <td>@employee.RoleId</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="font-weight-bold text-uppercase">No projects available for this employee.</p>
+}

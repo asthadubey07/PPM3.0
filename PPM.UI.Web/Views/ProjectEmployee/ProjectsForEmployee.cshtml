@@ -1,0 +1,31 @@
+@model IEnumerable<PPM.Model.Project>
+<h2 class="font-weight-bold text-uppercase">Projects for Employee</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="font-weight-bold text-uppercase">Project ID</th>
+                <th class="font-weight-bold text-uppercase">Name</th>
+                <th class="font-weight-bold text-uppercase">Start Date</th>
+                <th class="font-weight-bold text-uppercase">End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var project in Model)
+            {
+                <tr>
+                    <td>@project.ProjectId</td>
+                    <td>@project.Name</td>
+                    <td>@project.StartDate.ToShortDateString()</td>
+                    <td>@project.EndDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="font-weight-bold text-uppercase">No projects available for this employee.</p>
+}

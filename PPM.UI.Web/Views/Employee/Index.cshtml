@@ -1,0 +1,70 @@
+@model IEnumerable<PPM.Model.Employee>
+
+@{
+    ViewData["Title"] = "Employee List";
+}
+
+<style>
+    .container-xl {
+        width:200%;
+    }
+    
+</style> 
+<div class="container-xl">
+    <h2 class="font-weight-bold text-uppercase ">Employee List</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="font-weight-bold text-uppercase">Employee ID</th>
+                <th class="font-weight-bold text-uppercase">First Name</th>
+                <th class="font-weight-bold text-uppercase">Last Name</th>
+                <th class="font-weight-bold text-uppercase">Email</th>
+                <th class="font-weight-bold text-uppercase">Phone Number</th>
+                <th class="font-weight-bold text-uppercase">Address</th>
+                <th class="font-weight-bold text-uppercase">Role ID</th>
+                <th class="font-weight-bold text-uppercase">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var employee in Model)
+                {
+                    <tr>
+                        <td>@employee.EmployeeId</td>
+                        <td>@employee.FirstName</td>
+                        <td>@employee.LastName</td>
+                        <td>@employee.Email</td>
+                        <td>@employee.PhoneNumber</td>
+                        <td>@employee.Address</td>
+                        <td>@employee.RoleId</td>
+                        <td>
+                            <div class="d-flex justify-content-between">
+                                <a asp-action="Details" asp-route-id="@employee.EmployeeId"
+                                   class="btn btn-outline-info"><i class="bi bi-person-circle"></i> DETAILS</a>
+
+                                <a asp-action="Edit" asp-route-id="@employee.EmployeeId" class="btn btn-outline-warning"  style="margin-left: 8px;">
+                                    <i class="bi bi-pencil-square"></i> UPDATE</a>
+
+                                <a asp-action="Delete" asp-route-id="@employee.EmployeeId" class="btn btn-outline-danger"  style="margin-left: 8px;"
+                                   onclick="return confirm('Are you sure you want to delete this Employee')">
+                                    <i class="bi bi-trash-fill"></i> DELETE</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="8">No Employee available.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        <a asp-action="Create" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> CREATE NEW</a>
+    </div>
+</div>
